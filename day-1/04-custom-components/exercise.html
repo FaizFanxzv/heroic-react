@@ -73,32 +73,232 @@
       //
       // Remember: JSX must have ONE root element
       // All your components should be children of a single parent div
+      // Header component - displays the main title
+      function Header() {
+        return (
+          <h1
+            style={{
+              color: 'white',
+              fontSize: '42px',
+              margin: '0 0 10px 0',
+              fontWeight: 'bold',
+              textAlign: 'center',
+            }}
+          >
+            Welcome to Ngawi World ! 😹
+          </h1>
+        );
+      }
+
+      // Message component - displays a message
+      function Message() {
+        return (
+          <p
+            style={{
+              color: 'white',
+              fontSize: '20px',
+              margin: '15px 0',
+              textAlign: 'center',
+            }}
+          >
+            best country on earth lho rek lho ya cik 😜
+          </p>
+        );
+      }
+
+      // Button component - displays a button
+      function Button(){
+        return (
+          <button
+            style={{
+              padding: '12px 24px',
+              fontSize: '18px',
+              backgroundColor: '#fff',
+              color: '#667eea',
+              border: 'none',
+              borderRadius: '8px',
+              cursor: 'pointer',
+              fontWeight: 'bold',
+              margin: '10px',
+            }}
+            onClick={() => alert('Kamu Jelek!')}
+          >
+            Jangan Click!
+          </button>
+        );
+      }
+
+      // Footer component - displays copyright
+      function Footer() {
+        return (
+          <p
+            style={{
+              color: 'rgba(255, 255, 255, 0.8)',
+              fontSize: '14px',
+              textAlign: 'center',
+              marginTop: '20px',
+            }}
+          >
+            © 1945 Brigadir Ambalitikum 
+          </p>
+        );
+      }
+
+      // Hero components with hardcoded data (Bonus!)
+      function MasAmba() {
+        return (
+          <div
+            style={{
+              backgroundColor: 'rgba(255, 255, 255, 0.05)',
+              padding: '20px',
+              borderRadius: '8px',
+              margin: '10px 0',
+              textAlign: 'center',
+            }}
+          >
+            <h3 style={{ color: 'white', margin: '0 0 10px 0' }}>
+              Mas Amba
+            </h3>
+            <p
+              style={{
+                color: 'rgba(255, 255, 255, 0.8)',
+                margin: '0',
+                fontSize: '14px',
+              }}
+            >
+              Genius, HandSome, Humor
+            </p>
+          </div>
+        );
+      }
+
+      function MasRusdi() {
+        return (
+          <div
+            style={{
+              backgroundColor: 'rgba(255, 255, 255, 0.05)',
+              padding: '20px',
+              borderRadius: '8px',
+              margin: '10px 0',
+              textAlign: 'center',
+            }}
+          >
+            <h3 style={{ color: 'white', margin: '0 0 10px 0' }}>
+              Mas Rusdi
+            </h3>
+            <p
+              style={{
+                color: 'rgba(255, 255, 255, 0.8)',
+                margin: '0',
+                fontSize: '14px',
+              }}
+            >
+              With great Muwani comes great more Idea
+            </p>
+          </div>
+        );
+      }
+
+      function MasGatot() {
+        return (
+          <div
+            style={{
+              backgroundColor: 'rgba(255, 255, 255, 0.05)',
+              padding: '20px',
+              borderRadius: '8px',
+              margin: '10px 0',
+              textAlign: 'center',
+            }}
+          >
+            <h3 style={{ color: 'white', margin: '0 0 10px 0' }}>
+              Mas Gatot
+            </h3>
+            <p
+              style={{
+                color: 'rgba(255, 255, 255, 0.8)',
+                margin: '0',
+                fontSize: '14px',
+              }}
+            >
+              Warrior princess with thick lips
+            </p>
+          </div>
+        );
+      }
+
+      // Container component to wrap content with styling
+      function Container() {
+        return (
+          <div
+            style={{
+              padding: '40px',
+              backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              borderRadius: '16px',
+              maxWidth: '600px',
+              margin: '20px auto',
+              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2)',
+              backdropFilter: 'blur(10px)',
+              border: '1px solid rgba(255, 255, 255, 0.2)',
+            }}
+          >
+            <Header />
+            <Message />
+            <div style={{ textAlign: 'center' }}>
+              <Button/>
+            </div>
+            <Footer />
+          </div>
+        );
+      }
+
+      // HeroGallery component that shows all heroes
+      function HeroGallery() {
+        return (
+          <div
+            style={{
+              padding: '40px',
+              backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              borderRadius: '16px',
+              maxWidth: '600px',
+              margin: '20px auto',
+              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2)',
+              backdropFilter: 'blur(10px)',
+              border: '1px solid rgba(255, 255, 255, 0.2)',
+            }}
+          >
+            <h2
+              style={{
+                color: 'white',
+                textAlign: 'center',
+                marginTop: '0',
+              }}
+            >
+              My Favorite Members
+            </h2>
+            <MasAmba />
+            <MasRusdi />
+            <MasGatot />
+          </div>
+        );
+      }
+
+      // Main App component - composes everything together
+      function App() {
+        return (
+          <div>
+            <Container />
+            <HeroGallery />
+          </div>
+        );
+      }
 
       // STEP 6: Render the App
       // Get the root element, create a React root, and render <App />
       const rootElement = document.getElementById('root');
       const root = ReactDOM.createRoot(rootElement);
+      root.render(<App />);
       // Call root.render() with your App component: <App />
 
-      // BONUS CHALLENGE 1: Create a styled Card component
-      // Return a div with:
-      // - backgroundColor: 'rgba(255, 255, 255, 0.1)'
-      // - padding: '20px'
-      // - borderRadius: '8px'
-      // - margin: '10px'
-      // Put an h3 and p inside it with hero information
-
-      // BONUS CHALLENGE 2: Component Composition
-      // Create multiple Card components with different hero data
-      // Use them inside your App component
-      // Try: Iron Man, Spider-Man, Wonder Woman
-
-      // KEY CONCEPTS:
-      // ✓ Components are reusable pieces of UI
-      // ✓ They're just functions that return JSX
-      // ✓ Components can use other components (composition)
-      // ✓ Component names must be PascalCase (capitalized)
-      // ✓ Use components like HTML tags: <MyComponent />
     </script>
   </body>
 </html>
