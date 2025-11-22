@@ -36,6 +36,7 @@
       // STEP 1: Get the root DOM element
       // Use document.getElementById() to get the element with id "root"
       // Store it in a variable called rootElement
+      const elementRoot = document.getElementById('root');
 
       // STEP 2: Create a React element using React.createElement
       // API: React.createElement(type, props, ...children)
@@ -52,23 +53,79 @@
       // - child: an h1 element with text "Hello World"
       //
       // React Docs: https://react.dev/reference/react/createElement
+      const heading = React.createElement(
+        'h1',
+        {
+          style: {
+            color: 'white',
+            fontSize: '56px',
+            margin: '0',
+            fontWeight: 'bold',
+          },
+        },
+        'Hello Duniaku',
+      );
+
+      const paragraph = React.createElement(
+        'p',
+        {
+          style: {
+            color: 'white',
+            fontSize: '24px',
+            margin: '10px 0',
+          },
+        },
+        'Selamat datang di hatiku',
+      );
+
+      const button = React.createElement(
+        'button',
+        {
+          onClick: () => alert('Button clicked!'),
+          style: {
+            padding: '12px 24px',
+            fontSize: '18px',
+            backgroundColor: '#fff',
+            color: '#667eea',
+            border: 'none',
+            borderRadius: '8px',
+            cursor: 'pointer',
+            fontWeight: 'bold',
+            marginTop: '20px',
+          },
+        },
+        'Sentuh hatiku!',
+      );
 
       // STEP 3: Create a React root
       // Use ReactDOM.createRoot() passing in your rootElement
       // Store the result in a variable called root
       // Docs: https://react.dev/reference/react-dom/client/createRoot
+      const container = React.createElement(
+        'div',
+        {
+          className: 'container',
+          style: {
+            padding: '60px',
+            backgroundColor: 'rgba(255, 255, 255, 0.3)',
+            borderRadius: '20px',
+            textAlign: 'center',
+            maxWidth: '600px',
+            margin: '50px auto',
+            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.5)',
+            backdropFilter: 'blur(10px)',
+            border: '1px solid rgba(255, 255, 255, 0.5)',
+          },
+        },
+        heading,
+        paragraph,
+        button,
+      );
 
       // STEP 4: Render your React element
       // Call root.render() passing in your element
-
-      // BONUS CHALLENGE 1: Create nested elements
-      // Make your div contain both an h1 and a p element
-      // You can pass multiple children as additional arguments:
-      // React.createElement('div', props, child1, child2, child3)
-
-      // BONUS CHALLENGE 2: Add an onClick event
-      // Add onClick to props: { onClick: function() { alert('Clicked!') } }
-      // Note: In React, event handlers are camelCase (onClick, not onclick)
+      const root = ReactDOM.createRoot(elementRoot);
+      root.render(container);
     </script>
   </body>
 </html>
